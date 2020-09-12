@@ -6,11 +6,11 @@
  * ! Don't put your privateKey inside this file directly!
  */
 export default {
-  viewId: '205703100',
+  viewId: process.env.VIEW_ID,
   auth: {
-    projectId: 'ga-hit-count',
+    projectId: 'red-presence-289317',
     privateKey: process.env.PRIVATE_KEY,
-    clientEmail: 'blog-hit-count@ga-hit-count.iam.gserviceaccount.com',
+    clientEmail: 'bot-301@red-presence-289317.iam.gserviceaccount.com',
   },
   allFilter: ['/20'],
   startDate: '2010-01-01',
