@@ -7,17 +7,18 @@ import config from './config'
  */
 export default async (req: NowRequest, resp: NowResponse) => {
   // API query page parameter
-  const { page = '' } = req.query
-
+  const { page = '', from = '' } = req.query
+  const _from: string = (from instanceof Array && from.join('')) || (from as string)
+  const startDate = from === '' ? config.defaultStartDate : new Date(_from).toISOString().replace(/T\S+$/,'')
   // page path filter
   const filter =
     page === ''
       ? { dimensionName: 'ga:pagePath', operator: 'BEGINS_WITH', expressions: config.allFilter }
       : {
-          dimensionName: 'ga:pagePath',
-          operator: 'EXACT',
-          expressions: [page] as string[],
-        }
+        dimensionName: 'ga:pagePath',
+        operator: 'EXACT',
+        expressions: [page] as string[],
+      }
 
   const auth = new google.auth.GoogleAuth({
     credentials: {
@@ -40,7 +41,7 @@ export default async (req: NowRequest, resp: NowResponse) => {
           viewId: config.viewId,
           dateRanges: [
             {
-              startDate: config.startDate,
+              startDate: startDate,
               endDate: 'today',
             },
           ],

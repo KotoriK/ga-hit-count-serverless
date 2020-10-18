@@ -12,6 +12,6 @@ export default {
     privateKey: process.env.PRIVATE_KEY,
     clientEmail: 'bot-301@red-presence-289317.iam.gserviceaccount.com',
   },
-  allFilter: ['/20'],
-  startDate: '2010-01-01',
+  allFilter: ['/'],
+  defaultStartDate: '2010-01-01',
 }
