@@ -41,7 +41,7 @@ export default async (req: NowRequest, resp: NowResponse) => {
           viewId: config.viewId,
           dateRanges: [
             {
-              startDate: startDate,
+              startDate,
               endDate: 'today',
             },
           ],
