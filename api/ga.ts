@@ -9,7 +9,7 @@ export default async (req: NowRequest, resp: NowResponse) => {
   // API query page parameter
   const { page = '', from = '' } = req.query
   const _from: string = (from instanceof Array && from.join('')) || (from as string)
-  const startDate = from === '' ? config.defaultStartDate : new Date(_from).toISOString().replace(/T\S+$/,'')
+  const startDate = from === '' ? config.defaultStartDate : new Date(_from).toISOString().replace(/T\S+$/, '')
   // page path filter
   const filter =
     page === ''
@@ -48,7 +48,7 @@ export default async (req: NowRequest, resp: NowResponse) => {
           metrics: [
             {
               expression: 'ga:pageviews',
-            },{
+            }, {
               expression: "ga:avgTimeOnPage"
             },
           ],
@@ -73,8 +73,7 @@ export default async (req: NowRequest, resp: NowResponse) => {
     },
   })
   const report = gaReport.data.reports[0].data
-  resp.status(200).send(JSON.stringify(report))
-return
+
   let res = []
   if (report.totals[0].values[0] === '0') {
     res = [{ page: page, hit: '0' }]
@@ -82,11 +81,11 @@ return
     report.rows.forEach(r => {
       // Remove all pages with querys
       if (!r.dimensions[0].includes('?')) {
-        res.push({ page: r.dimensions[0], hit: r.metrics[0].values[0] })
+        res.push({ page: r.dimensions[0], hit: r.metrics[0].values[0], avgTOP: r.metrics[0].values[1] })
       }
     })
   }
-
+  resp.setHeader('Cache-Control', `s-maxage=${config.maxAge}, public, stale-while-revalidate`)
   resp.setHeader('Access-Control-Allow-Origin', '*')
   resp.status(200).send(res)
 }

@@ -13,5 +13,6 @@ export default {
     clientEmail: 'bot-301@red-presence-289317.iam.gserviceaccount.com',
   },
   allFilter: ['/'],
-  defaultStartDate: '2010-01-01',
+  defaultStartDate: '2018-01-01',
+  maxAge:3600/*seconds */
 }
