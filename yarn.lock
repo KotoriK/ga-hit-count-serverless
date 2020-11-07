@@ -7,6 +7,13 @@
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.11.10.tgz?cache=0&sync_timestamp=1602874228094&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.11.10.tgz#8c102aba13bf5253f35146affbf8b26275069bef"
   integrity sha1-jBAquhO/UlPzUUav+/iyYnUGm+8=
 
+"@types/tunnel@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npm.taobao.org/@types/tunnel/download/@types/tunnel-0.0.1.tgz#0d72774768b73df26f25df9184273a42da72b19c"
+  integrity sha1-DXJ3R2i3PfJvJd+RhCc6QtpysZw=
+  dependencies:
+    "@types/node" "*"
+
 "@vercel/node@^1.7.1":
   version "1.8.4"
   resolved "https://registry.npm.taobao.org/@vercel/node/download/@vercel/node-1.8.4.tgz#43bbc2e39f97979390e0f968952bba4ebfdcb22e"
@@ -267,6 +274,11 @@ ts-node@8.9.1:
     make-error "^1.1.1"
     source-map-support "^0.5.17"
     yn "3.1.1"
+
+tunnel@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.npm.taobao.org/tunnel/download/tunnel-0.0.6.tgz#72f1314b34a5b192db012324df2cc587ca47f92c"
+  integrity sha1-cvExSzSlsZLbASMk3yzFh8pH+Sw=
 
 typescript@3.9.3:
   version "3.9.3"

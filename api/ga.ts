@@ -48,6 +48,8 @@ export default async (req: NowRequest, resp: NowResponse) => {
           metrics: [
             {
               expression: 'ga:pageviews',
+            },{
+              expression: "ga:avgTimeOnPage"
             },
           ],
           dimensions: [
@@ -71,7 +73,8 @@ export default async (req: NowRequest, resp: NowResponse) => {
     },
   })
   const report = gaReport.data.reports[0].data
-
+  resp.status(200).send(JSON.stringify(report))
+return
   let res = []
   if (report.totals[0].values[0] === '0') {
     res = [{ page: page, hit: '0' }]
