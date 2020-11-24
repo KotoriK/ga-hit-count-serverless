@@ -64,7 +64,7 @@ export default async (req: NowRequest, resp: NowResponse) => {
           ],
           orderBys: [
             {
-              fieldName: 'ga:pageviews',
+              fieldName: 'ga:uniquePageviews',
               sortOrder: 'DESCENDING',
             },
           ],
@@ -73,7 +73,6 @@ export default async (req: NowRequest, resp: NowResponse) => {
     },
   })
   const report = gaReport.data.reports[0].data
-
   let res = []
   if (report.totals[0].values[0] === '0') {
     res = [{ page: page, hit: '0' }]
