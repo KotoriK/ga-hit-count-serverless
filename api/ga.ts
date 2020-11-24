@@ -47,7 +47,7 @@ export default async (req: NowRequest, resp: NowResponse) => {
           ],
           metrics: [
             {
-              expression: 'ga:pageviews',
+              expression: 'ga:uniquePageviews',
             }, {
               expression: "ga:avgTimeOnPage"
             },
