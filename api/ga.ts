@@ -1,6 +1,6 @@
 import { NowRequest, NowResponse } from '@vercel/node'
 import { google } from 'googleapis'
-import config from './config'
+import config from '../config'
 
 /**
  * Blog hit count. Served by Google Analytics
