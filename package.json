@@ -8,9 +8,9 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "@vercel/node": "^1.7.1"
+    "@vercel/node": "^1.12.1"
   },
   "dependencies": {
-    "googleapis": "^52.1.0"
+    "googleapis": "^92.0.0"
   }
 }
